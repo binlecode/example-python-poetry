@@ -10,7 +10,7 @@ readme = "README.md"
 packages = [{include = "test_pkg_poetry_binlecode"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 
 
 [tool.poetry.group.dev.dependencies]
