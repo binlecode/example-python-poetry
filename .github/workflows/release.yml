@@ -1,9 +1,12 @@
 name: release on main merge
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   build:
