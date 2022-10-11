@@ -2,6 +2,8 @@
 
 Comparing to setuptools, poetry is all-in-one shop and with less manual
 configuration in python package development cycle.
+For example, `pyproject.toml` is created by poetry with format of PEP 518
+package specs with `poetry new` command.
 
 ```sh
 pyenv shell 3.9.11
@@ -37,6 +39,22 @@ poetry install
 
 poetry export --output requirements.txt
 ```
+
+## testing with pytest
+
+Run pytest at project root level, it will scan tests folder and test scripts.
+
+```sh
+poetry run pytest
+```
+
+## source code formatting with black
+
+```sh
+poetry run black .
+```
+
+## build distribution and publish
 
 Check package and build distribution. Poetry builds both source and wheel
 distributions.

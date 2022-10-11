@@ -1,13 +1,16 @@
 [tool.poetry]
 name = "test-pkg-poetry-binlecode"
-version = "0.1.0"
+version = "0.1.4"
 description = ""
+license = "MIT"
+
 authors = ["Bin Le <bin.le.code@gmail.com>"]
+repository = "https://github.com/binlecode/example-python-poetry"
 readme = "README.md"
 packages = [{include = "test_pkg_poetry_binlecode"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 
 
 [tool.poetry.group.dev.dependencies]
