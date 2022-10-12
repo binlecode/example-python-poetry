@@ -9,6 +9,9 @@ defaults:
   run:
     shell: bash
 
+env:
+  PR_NUMBER: ${{ github.event.number }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,17 +41,14 @@ jobs:
         run: |
           poetry build --no-interaction
 
-      - name: Generate Release Notes
-        run: |
-          git log $(git describe --tags --abbrev=0 HEAD^)..HEAD --pretty='format:* %h %s' --no-merges >> ".github/release_template.md"
-
       - name: Create Release Draft
         uses: softprops/action-gh-release@v1
         with:
-          body_path: ".github/release_template.md"
+          tag_name: ${{ env.PROJECT_VERSION }}
+          generate_release_notes: true
           draft: true
           files: |
-            dist/application-${{env.PROJECT_VERSION}}-py3-none-any.whl
-            dist/application-${{env.PROJECT_VERSION}}.tar.gz
+            dist/application-${{ env.PROJECT_VERSION }}-py3-none-any.whl
+            dist/application-${{ env.PROJECT_VERSION }}.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
