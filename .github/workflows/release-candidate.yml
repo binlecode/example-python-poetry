@@ -9,9 +9,6 @@ defaults:
   run:
     shell: bash
 
-env:
-  PR_NUMBER: ${{ github.event.number }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
