@@ -79,3 +79,18 @@ Publishing test-pkg-poetry-binlecode (0.1.0) to PyPI
  - Uploading test-pkg-poetry-binlecode-0.1.0.tar.gz 100%
  - Uploading test_pkg_poetry_binlecode-0.1.0-py3-none-any.whl 100%
 ```
+
+## github cicd workflows
+
+This repo adopts basic pull-request drive cicd flow:
+
+- no direct push to main, main is only pushed via pull request
+- pull request to main triggers testing
+- merge to main triggers release tag and release draft
+- a manual release draft pubish triggers deployment (publish to PyPI)
+
+Additional notes:
+
+- Black (PEP8) lint check is triggered on all push and pull requests.
+- Pull-request driven tests cover python 3.8, 3.9 on multiple platforms.
+- Release candidate is built with python 3.9 on ubuntu-latest platform.
